@@ -1,4 +1,4 @@
-package com.example;
+package com.Modelo;
 
 import java.util.List;
 
@@ -68,11 +68,11 @@ public class Bosque {
        System.out.println("Id: "+m.getId()+" Nombre: "+m.getNombre()+" Tipo: "+m.getTipo()+" Vida: "+m.getVida()+" Fuerza: "+m.getFuerza()); 
 
     }
-    void cambiarJefe(Monstruo m){
+    public void cambiarJefe(Monstruo m){
         this.setMonstruoJefe(m);
     }
 
-    void addMonstruo(Monstruo m){
+    public void addMonstruo(Monstruo m){
         List<Monstruo> l=monstruosL;
         l.add(m);
         setMonstruosL(l);

@@ -1,4 +1,4 @@
-package com.example;
+package com.Modelo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,29 +6,33 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+
 @Entity
-@Table(name = "boladefuego")
-public class Boladefuego implements Hechizo{
+@Table(name = "rayo")
+public class Rayo implements Hechizo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private String nombre;
-    private int dano;
+    private int dano=50;
 
-    Boladefuego(){}
-    Boladefuego(String nombre){
+    Rayo(){}
+    Rayo(String nombre, int dano){
         this.nombre=nombre;
+        this.dano=dano;
     }
+
+
     @Override
     public void lanzarv(Monstruo[] m) {
-        for (int i = 0; i < m.length; i++) {
-            m[i].setVida(m[i].getVida()-40);
-        }
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'lanzarv'");
     }
+
     @Override
     public void lanzar(Monstruo m) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'lanzar'");
+        m.setVida(m.getVida()-dano);
     }
 
     @Override
@@ -36,4 +40,5 @@ public class Boladefuego implements Hechizo{
             // TODO Auto-generated method stub
             return this.nombre;
         }
+        
 }

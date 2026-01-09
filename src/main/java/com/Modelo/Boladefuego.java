@@ -1,6 +1,4 @@
-package com.example;
-
-import java.util.Random;
+package com.Modelo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,46 +7,33 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Hechizo")
-public class Lanzardado implements Hechizo {
+@Table(name = "boladefuego")
+public class Boladefuego implements Hechizo{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
 
     private String nombre;
+    private int dano;
 
-    Lanzardado(){}
-    Lanzardado(String nombre){
+    Boladefuego(){}
+    Boladefuego(String nombre){
         this.nombre=nombre;
     }
-
     @Override
     public void lanzarv(Monstruo[] m) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'lanzarv'");
+        for (int i = 0; i < m.length; i++) {
+            m[i].setVida(m[i].getVida()-40);
+        }
     }
-
     @Override
     public void lanzar(Monstruo m) {
-        int[] dado= {1,10,20,60,70,150};
-        
-        m.setVida(m.getVida()   );
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'lanzar'");
     }
 
-
-
-
-    /*
     @Override
-    public boolean equals(Object obj) {
-        
-        return ;
-    }*/
-
-        @Override
         public String toString() {
             // TODO Auto-generated method stub
             return this.nombre;
         }
-
 }

@@ -1,4 +1,4 @@
-package com.example;
+package com.Modelo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,7 +16,7 @@ public class Dragon {
     private Double IntesidadFuego;
     private Double resistencia;
     
-    Dragon(){}
+    public Dragon(){}
     Dragon(String Nombre,Double IntesidadFuego,Double resistencia){
         this.Nombre=Nombre;
         this.IntesidadFuego=IntesidadFuego;
@@ -26,7 +26,12 @@ public class Dragon {
         Nombre = nombre;
     }
     public void setResistencia(Double resistencia) {
-        this.resistencia = resistencia;
+        if (resistencia < 0.0) {
+            System.out.println("Error la vida no puede ser negativa");
+            this.resistencia= 0.0;
+        }else{
+            this.resistencia = resistencia;
+        }
     }
     public void setIntesidadFuego(Double intesidadFuego) {
         IntesidadFuego = intesidadFuego;
@@ -41,7 +46,7 @@ public class Dragon {
         return resistencia;
     }
 
-    void lanzarHechizo(Monstruo m){
+    void exhalar(Monstruo m){
 
         m.setVida( m.getVida() - getIntesidadFuego() ) ; 
 

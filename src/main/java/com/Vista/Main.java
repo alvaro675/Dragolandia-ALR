@@ -1,4 +1,4 @@
-package com.example;
+package com.Vista;
 
 import java.util.List;
 import java.util.Scanner;
@@ -7,6 +7,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+
+import com.Modelo.Bosque;
+import com.Modelo.Dragon;
+import com.Modelo.Mago;
+import com.Modelo.Monstruo;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -111,22 +116,7 @@ public class Main {
 
 
 
-        try (EntityManager factory = HibernateUtil.getEntityManager();){
-            
-            factory.getTransaction().begin();
-
-
-            factory.persist(mago);
-            factory.persist(mons);
-            factory.persist(bosque);
-            factory.persist(dragon);
-
-            factory.getTransaction().commit();
-
-
-        }catch (Exception e) {
-            System.out.println("Error");
-        }
+        
 
         
 

@@ -1,4 +1,4 @@
-package com.example;
+package com.Modelo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,7 +19,7 @@ public class Monstruo {
     private String tipo;
     private Double fuerza;
 
-    Monstruo(){}
+    public Monstruo(){}
     Monstruo(int id,String nombre,Double vida,String tipo,Double fuerza){
 
         this.id= id;
