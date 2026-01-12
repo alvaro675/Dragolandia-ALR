@@ -5,12 +5,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Hechizo")
-public interface Hechizo {
+public class Hechizo {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
@@ -23,9 +26,9 @@ public interface Hechizo {
     }
     */ 
    
-   
+   /*
     void lanzarv(Monstruo[] m);
-    void lanzar(Monstruo m);
+    void lanzar(Monstruo m);*/
  
 
 
@@ -57,9 +60,9 @@ public interface Hechizo {
 */
 
 
-/*
-    @ManyToOne
-    private Mago mago;*/
+
+    @ManyToMany
+    private Mago mago;
     
    
 }

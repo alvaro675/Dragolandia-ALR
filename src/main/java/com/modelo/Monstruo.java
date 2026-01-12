@@ -102,7 +102,7 @@ public class Monstruo {
         return tipo;
     }
 
-    void atacar(Mago m){
+    public void atacar(Mago m){
 
         m.setVida( m.getVida() - this.getFuerza()) ; 
 

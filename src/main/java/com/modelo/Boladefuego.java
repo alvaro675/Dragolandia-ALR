@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "boladefuego")
-public class Boladefuego implements Hechizo{
+public class Boladefuego extends Hechizo{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -19,6 +19,7 @@ public class Boladefuego implements Hechizo{
     Boladefuego(String nombre){
         this.nombre=nombre;
     }
+    /*
     @Override
     public void lanzarv(Monstruo[] m) {
         for (int i = 0; i < m.length; i++) {
@@ -30,7 +31,7 @@ public class Boladefuego implements Hechizo{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'lanzar'");
     }
-
+*/
     @Override
         public String toString() {
             // TODO Auto-generated method stub

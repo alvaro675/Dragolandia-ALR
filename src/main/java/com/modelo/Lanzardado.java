@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Hechizo")
-public class Lanzardado implements Hechizo {
+public class Lanzardado extends Hechizo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
@@ -21,7 +21,7 @@ public class Lanzardado implements Hechizo {
     Lanzardado(String nombre){
         this.nombre=nombre;
     }
-
+/*
     @Override
     public void lanzarv(Monstruo[] m) {
         // TODO Auto-generated method stub
@@ -34,7 +34,7 @@ public class Lanzardado implements Hechizo {
         
         m.setVida(m.getVida()   );
     }
-
+*/
 
 
 

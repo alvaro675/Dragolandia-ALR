@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "boladenieve")
-public class Boladenieve implements Hechizo{
+public class Boladenieve extends Hechizo{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -18,7 +18,7 @@ public class Boladenieve implements Hechizo{
     Boladenieve(String nombre){
         this.nombre=nombre;
     }
-
+/*
     @Override
     public void lanzarv(Monstruo[] m) {
         // TODO Auto-generated method stub
@@ -29,7 +29,7 @@ public class Boladenieve implements Hechizo{
     public void lanzar(Monstruo m) {
         m.setVida(0.0);
     }
-
+*/
     @Override
         public String toString() {
             // TODO Auto-generated method stub

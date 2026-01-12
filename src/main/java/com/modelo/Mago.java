@@ -18,14 +18,14 @@ public class Mago {
     private String nombre;
     private Double vida;
     private Double nivelMagia;
-    private Hechizo Conjuros;
+    private Hechizo[] Conjuros;
     
 
 
 
     public Mago (){}
 
-    public Mago(int id, String nombre, Double vida,Double nivelMagia, Hechizo Conjuros){
+    public Mago(int id, String nombre, Double vida,Double nivelMagia, Hechizo[] Conjuros){
         this.id= id;
         this.nombre= nombre;
         this.vida= vida;
@@ -65,13 +65,19 @@ public class Mago {
         }
         
     }
+    public void setConjuros(Hechizo[] conjuros) {
+        Conjuros = conjuros;
+    }
+    public Hechizo[] getConjuros() {
+        return Conjuros;
+    }
     void lanzarHechizo(Monstruo m){
 
         m.setVida( m.getVida() - this.getNivelMagia()) ; 
 
     }
     
-    void LanzarHechizo(Monstruo m, Hechizo hechizo){
+    public void lanzarHechizo(Monstruo m, Hechizo hechizo){
 
 
         if (hechizo instanceof Boladefuego) {

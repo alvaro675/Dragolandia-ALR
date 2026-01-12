@@ -8,10 +8,15 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import com.modelo.Boladefuego;
+import com.modelo.Boladenieve;
 import com.modelo.Bosque;
 import com.modelo.Dragon;
+import com.modelo.Hechizo;
+import com.modelo.Lanzardado;
 import com.modelo.Mago;
 import com.modelo.Monstruo;
+import com.modelo.Rayo;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -25,6 +30,7 @@ public class Main {
         Bosque bosque= new Bosque();
         Dragon dragon= new  Dragon();
         Scanner sc= new Scanner(System.in);
+        //Hechizo[] listaHechizos= {Rayo.class};
 
 
          System.out.println("Bosque");
@@ -86,6 +92,13 @@ public class Main {
                 nmagos= sc.nextInt();
                 sc.nextLine();   
             }
+
+        Rayo rayo= new Rayo();
+        Boladefuego boladefuego= new Boladefuego();
+        Boladenieve boladenieve= new Boladenieve();
+        Lanzardado lanzardado= new Lanzardado();
+        Hechizo[] listaHechizos = {rayo,boladefuego,boladenieve,lanzardado};
+
         for (int i = 0; i < nmagos; i++) {
         System.out.println("Mago");
             //System.out.println("Id de Mago");
@@ -98,7 +111,9 @@ public class Main {
             sc.nextLine();
             System.out.println("Nivel Magia Mago");
             mago.setNivelMagia(sc.nextDouble());
-            sc.nextLine();    
+            sc.nextLine();
+            mago.setConjuros(listaHechizos);
+                
         }    
         
 
@@ -119,9 +134,9 @@ public class Main {
         
 
         
-
+            
         while (mago.getVida().equals(0.0) || bosque.getMonstruoJefe().getVida().equals(0.0) ) {
-            mago.lanzarHechizo(bosque.getMonstruoJefe());
+            mago.lanzarHechizo(bosque.getMonstruoJefe(),rayo);
             bosque.getMonstruoJefe().atacar(mago);
         }
         if (bosque.getMonstruoJefe().getVida().equals(0.0)) {
