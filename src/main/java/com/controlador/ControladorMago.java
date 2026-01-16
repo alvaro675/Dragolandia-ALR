@@ -13,7 +13,7 @@ import com.modelo.Monstruo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 public class ControladorMago{
-    void insertar(Mago mago){
+    public void insertar(Mago mago){
     try (EntityManager factory = HibernateUtil.getEntityManager();){
             
             factory.getTransaction().begin();
@@ -29,7 +29,7 @@ public class ControladorMago{
         }
     }
     
-    void buscar(){
+    public void buscar(){
          try (EntityManager factory = HibernateUtil.getEntityManager();){
             
             factory.getTransaction().begin();
@@ -43,7 +43,7 @@ public class ControladorMago{
             System.out.println("Error");
         }
     }
-    void actualizar(Mago mago){
+    public void actualizar(Mago mago){
          try (EntityManager factory = HibernateUtil.getEntityManager();){
             
             factory.getTransaction().begin();
@@ -57,7 +57,7 @@ public class ControladorMago{
             System.out.println("Error");
         }
     }
-    void borrar(){
+    public void borrar(){
          try (EntityManager factory = HibernateUtil.getEntityManager();){
             
             factory.getTransaction().begin();

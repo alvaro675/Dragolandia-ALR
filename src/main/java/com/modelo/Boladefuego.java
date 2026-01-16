@@ -15,7 +15,7 @@ public class Boladefuego extends Hechizo{
     private String nombre;
     private int dano;
 
-    Boladefuego(){}
+    public Boladefuego(){}
     Boladefuego(String nombre){
         this.nombre=nombre;
     }

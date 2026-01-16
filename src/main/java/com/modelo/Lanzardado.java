@@ -17,7 +17,7 @@ public class Lanzardado extends Hechizo {
 
     private String nombre;
 
-    Lanzardado(){}
+    public Lanzardado(){}
     Lanzardado(String nombre){
         this.nombre=nombre;
     }

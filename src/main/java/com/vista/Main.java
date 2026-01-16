@@ -8,6 +8,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import com.controlador.ControladorBosque;
+import com.controlador.ControladorMago;
+import com.controlador.ControladorMonstruo;
+import com.controlador.Controladordragon;
 import com.modelo.Boladefuego;
 import com.modelo.Boladenieve;
 import com.modelo.Bosque;
@@ -30,6 +34,12 @@ public class Main {
         Bosque bosque= new Bosque();
         Dragon dragon= new  Dragon();
         Scanner sc= new Scanner(System.in);
+
+        ControladorBosque cb= new ControladorBosque();
+        ControladorMonstruo cmons= new ControladorMonstruo();
+        Controladordragon cdr= new Controladordragon();
+
+
         //Hechizo[] listaHechizos= {Rayo.class};
 
 
@@ -45,11 +55,11 @@ public class Main {
             bosque.cambiarJefe(mons);
 
 
-            int nmonstruos=2;
-            while (nmonstruos<3) {
-                System.out.println("Cuantos monstruos a crear? (Minimo 3)");
-                nmonstruos= sc.nextInt();
-                sc.nextLine();   
+        int nmonstruos=2;
+        while (nmonstruos<3) {
+            System.out.println("Cuantos monstruos a crear? (Minimo 3)");
+            nmonstruos= sc.nextInt();
+            sc.nextLine();   
             }
 
 
@@ -99,6 +109,13 @@ public class Main {
         Lanzardado lanzardado= new Lanzardado();
         Hechizo[] listaHechizos = {rayo,boladefuego,boladenieve,lanzardado};
 
+
+
+
+        Mago[] magos= new Mago[nmagos]; 
+        ControladorMago cm= new ControladorMago();
+        
+
         for (int i = 0; i < nmagos; i++) {
         System.out.println("Mago");
             //System.out.println("Id de Mago");
@@ -112,7 +129,15 @@ public class Main {
             System.out.println("Nivel Magia Mago");
             mago.setNivelMagia(sc.nextDouble());
             sc.nextLine();
+
+
+            System.out.println("Conjuros del mago");
             mago.setConjuros(listaHechizos);
+            System.out.println(listaHechizos);
+            cm.insertar(mago);
+            magos[i]=mago;
+
+            
                 
         }    
         
@@ -121,19 +146,20 @@ public class Main {
 
 
             
-           bosque.mostrarJefe();
-            System.out.println("");
-            System.out.println("");
+        bosque.mostrarJefe();
+        System.out.println("");
+        System.out.println("");
             
 
 
-
-
+        
 
 
         
 
         
+
+        /*
             
         while (mago.getVida().equals(0.0) || bosque.getMonstruoJefe().getVida().equals(0.0) ) {
             mago.lanzarHechizo(bosque.getMonstruoJefe(),rayo);
@@ -149,6 +175,27 @@ public class Main {
             bosque.mostrarJefe();
         }
 
+        */
+        while (!magos[1].getVida().equals(0.0) | !magos[2].getVida().equals(0.0) || dragon.getResistencia().equals(0.0) || !bosque.getMonstruoJefe().getVida().equals(0.0) ) {
+
+            System.out.println("Hechizo 1.rayo 2.boladefuego 3.boladenieve 4.lanzardado");
+            mago.lanzarHechizo(mons, mago.getConjuros()[sc.nextInt()] );
+            sc.nextLine();
+            dragon.exhalar(mons);
+            bosque.getMonstruoJefe().atacar(mago);
+
+
+
+        }
+        if (bosque.getMonstruoJefe().getVida().equals(0.0)) {
+            System.out.println("El mago "+magos[].getNombre()+" y El dragon"+dragon.getNombre()+"  a derrotado al monstruo");
+           
+
+        }
+        if (!magos[1].getVida().equals(0.0) && !magos[2].getVida().equals(0.0) && dragon.getResistencia().equals(0.0)) {
+            System.out.println("El monstruo gana");
+            bosque.mostrarJefe();
+        }
 
 
 

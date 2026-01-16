@@ -15,6 +15,8 @@ public class Dragon {
     private String Nombre;
     private Double IntesidadFuego;
     private Double resistencia;
+    @OneToOne
+    private Bosque bosque;
     
     public Dragon(){}
     Dragon(String Nombre,Double IntesidadFuego,Double resistencia){
@@ -46,14 +48,13 @@ public class Dragon {
         return resistencia;
     }
 
-    void exhalar(Monstruo m){
+    public void exhalar(Monstruo m){
 
         m.setVida( m.getVida() - getIntesidadFuego() ) ; 
 
     }
 
 
-    @OneToOne
-    private Bosque bosque;
+    
 
 }

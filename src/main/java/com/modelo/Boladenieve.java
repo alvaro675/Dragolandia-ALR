@@ -14,7 +14,7 @@ public class Boladenieve extends Hechizo{
 
     private String nombre;
 
-    Boladenieve(){}
+    public Boladenieve(){}
     Boladenieve(String nombre){
         this.nombre=nombre;
     }
